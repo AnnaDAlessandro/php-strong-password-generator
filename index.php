@@ -7,7 +7,39 @@
 
     <title>Strong password</title>
 </head>
-<body>
+<body class="p-5">
+    <header class="p-3">
+       <h1 class="text-center">Strong Password Generator</h1>
+       <h2 class="text-center font-weight-bold">Genera una password sicura</h2> 
+    </header>
+    <main>
+        <form action="index.php" method="get">
+            <div class="row mb-5">
+               <div class="col-2">
+                  <label 
+                  for="password" 
+                  class="form-label">Lunghezza Password</label>
+                
+                  <input 
+                  type="number" 
+                  class="form-control"
+                  name="password"
+                  placeholder=""
+                  id="password">
+                
+                
+                
+              </div>
+            </div>
+            
+
+             <div>
+                 <button class="btn btn-primary">Invia</button>
+                 <button class="btn btn-secondary">Annulla</button>
+             </div>
+           
+        </form>
+    </main>
    
 
 
