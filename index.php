@@ -1,3 +1,18 @@
+<?php
+$letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$numbers='0123456789';
+$simboli='!@#$%^&*?()[]{}-_;:';
+if(isset($_GET['lunghezzapassword'])){
+    $lunghezzapassword=$_GET['lunghezzapassword'];
+    function generaPassword($lunghezzapassword){
+
+    }
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +32,15 @@
             <div class="row mb-5">
                <div class="col-2">
                   <label 
-                  for="password" 
+                  for="lunghezzapassword" 
                   class="form-label">Lunghezza Password</label>
                 
                   <input 
                   type="number" 
                   class="form-control"
-                  name="password"
+                  name="lunghezzapassword"
                   placeholder=""
-                  id="password">
+                  id="lunghezzapassword">
                 
                 
                 
