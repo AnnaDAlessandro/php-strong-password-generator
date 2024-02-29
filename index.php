@@ -12,7 +12,7 @@ function generaPassword($lunghezzapassword, $letters, $numbers,$simboli){
     $newpassword='';
     $onlyCaracters= $letters . $numbers . $simboli;
     while(strlen($newpassword) < $lunghezzapassword){
-        $indiceLettere= rand(o,strlen($onlyCaracters)-1);
+        $indiceLettere= rand(0,strlen($onlyCaracters)-1);
         $newpassword .= $onlyCaracters[$indiceLettere];
 
     }
