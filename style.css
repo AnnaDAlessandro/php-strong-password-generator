@@ -1,0 +1,14 @@
+body{
+    background-color: #001632;
+}
+h1{
+    color:  #808b99;
+}
+h2{
+    color: #fffff5;
+}
+form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; 
+}
