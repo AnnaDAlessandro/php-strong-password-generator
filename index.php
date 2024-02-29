@@ -4,16 +4,20 @@ $numbers='0123456789';
 $simboli='!@#$%^&*?()[]{}-_;:';
 if(isset($_GET['lunghezzapassword'])){
   $lunghezzapassword=$_GET['lunghezzapassword']; 
-  echo generaPassword($lunghezzapassword, $letters, $numbers,$simboli);
+  $consentiDuplicazione= $_GET['consentiDuplicazione'];
+  echo generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consentiDuplicazione);
 }
 
 
-function generaPassword($lunghezzapassword, $letters, $numbers,$simboli){
+function generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consentiDuplicazione){
     $newpassword='';
     $onlyCaracters= $letters . $numbers . $simboli;
     while(strlen($newpassword) < $lunghezzapassword){
         $indiceLettere= rand(0,strlen($onlyCaracters)-1);
-        $newpassword .= $onlyCaracters[$indiceLettere];
+        if($consentiDuplicazione == true || !str_contains($newpassword,$onlyCaracters[$indiceLettere])){
+           $newpassword .= $onlyCaracters[$indiceLettere];
+        }
+        
 
     }
     return $newpassword;
@@ -38,23 +42,57 @@ function generaPassword($lunghezzapassword, $letters, $numbers,$simboli){
        <h1 class="text-center">Strong Password Generator</h1>
        <h2 class="text-center font-weight-bold">Genera una password sicura</h2> 
     </header>
-    <main>
+    <main class="container">
         <form action="index.php" method="get">
-            <div class="row mb-5">
-               <div class="col-2">
+            <div class="row mb-5 d-flex flex-column gap-4">
+               <div class="col-7 d-flex justify-content-between my-5">
                   <label 
                   for="lunghezzapassword" 
                   class="form-label">Lunghezza Password</label>
                 
                   <input 
                   type="number" 
-                  class="form-control"
+                  class="form-control w-50"
                   name="lunghezzapassword"
-                  placeholder=""
-                  id="lunghezzapassword">
+                  placeholder="Inserisci un numero"
+                  id="lunghezzapassword"
+                 
+                  >
                 
                 
                 
+              </div>
+              <div class="col-2 col-4 d-flex justify-content-between mb-5">
+                <span>Consenti ripetizioni di uno o più caratteri</span>
+                <div>
+                    <div class="form-check">
+                    
+                    <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="consentiDuplicazione" 
+                    id="consentiDuplicazione"
+                    value="1"
+                    checked >
+                    <label 
+                    class="form-check-label" 
+                    for="consentiDuplicazione">Si</label>
+                </div>
+                <div class="form-check">
+                    
+                    <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="consentiDuplicazione" 
+                    id="consentiDuplicazione" 
+                    value="0">
+                    <label 
+                  class="form-check-label" 
+                  for="consentiDuplicazione">No</label>
+                </div>
+                </div>
+                
+
               </div>
             </div>
             
