@@ -33,6 +33,17 @@ if(isset($_GET['lunghezzapassword'])){
        <h2 class="text-center font-weight-bold">Genera una password sicura</h2> 
     </header>
     <main class="container">
+    <div class="password-result mb-5">
+            <?php if(!isset($response)): ?>
+                <p class="my-5">
+                    Nessun parametro valido inserito
+                </p>
+            <?php else: ?>
+                <p class="my-5">
+                    La Password generata è : <?= $response ?>
+                </p>
+            <?php endif; ?>
+            </div>
         <form action="index.php" method="get">
             <div class="row mb-5 d-flex flex-column gap-4">
                <div class="col-7 d-flex justify-content-between my-5">
@@ -91,10 +102,6 @@ if(isset($_GET['lunghezzapassword'])){
                  <button class="btn btn-primary">Invia</button>
                  <button class="btn btn-secondary">Annulla</button>
              </div>
-
-             <p class="my-5">
-                La Password generata è : <?= $response ?>
-             </p>
            
         </form>
     </main>

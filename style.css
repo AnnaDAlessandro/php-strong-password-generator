@@ -11,4 +11,13 @@ form{
     background-color: white;
     padding: 20px;
     border-radius: 10px; 
+    
 }
+.password-result{
+    background-color: #cff4fc;
+    padding: 5px;
+    border-radius: 10px; 
+ }
+ .password-result p{
+    margin-left: 10px;
+ }
