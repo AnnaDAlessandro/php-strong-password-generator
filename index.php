@@ -1,28 +1,17 @@
 <?php
+
+include_once __DIR__ . '/partials/functions/functions.php';
 $letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $numbers='0123456789';
 $simboli='!@#$%^&*?()[]{}-_;:';
 if(isset($_GET['lunghezzapassword'])){
   $lunghezzapassword=$_GET['lunghezzapassword']; 
   $consentiDuplicazione= $_GET['consentiDuplicazione'];
-  echo generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consentiDuplicazione);
+  $response= generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consentiDuplicazione);
 }
 
 
-function generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consentiDuplicazione){
-    $newpassword='';
-    $onlyCaracters= $letters . $numbers . $simboli;
-    while(strlen($newpassword) < $lunghezzapassword){
-        $indiceLettere= rand(0,strlen($onlyCaracters)-1);
-        if($consentiDuplicazione == true || !str_contains($newpassword,$onlyCaracters[$indiceLettere])){
-           $newpassword .= $onlyCaracters[$indiceLettere];
-        }
-        
 
-    }
-    return $newpassword;
-
-}
 
 ?>
 
@@ -101,6 +90,10 @@ function generaPassword($lunghezzapassword, $letters, $numbers,$simboli,$consent
                  <button class="btn btn-primary">Invia</button>
                  <button class="btn btn-secondary">Annulla</button>
              </div>
+
+             <p class="my-5">
+                La Password generata è : <?= $response ?>
+             </p>
            
         </form>
     </main>
