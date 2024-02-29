@@ -3,10 +3,21 @@ $letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $numbers='0123456789';
 $simboli='!@#$%^&*?()[]{}-_;:';
 if(isset($_GET['lunghezzapassword'])){
-    $lunghezzapassword=$_GET['lunghezzapassword'];
-    function generaPassword($lunghezzapassword){
+  $lunghezzapassword=$_GET['lunghezzapassword']; 
+  echo generaPassword($lunghezzapassword, $letters, $numbers,$simboli);
+}
+
+
+function generaPassword($lunghezzapassword, $letters, $numbers,$simboli){
+    $newpassword='';
+    $onlyCaracters= $letters . $numbers . $simboli;
+    while(strlen($newpassword) < $lunghezzapassword){
+        $indiceLettere= rand(o,strlen($onlyCaracters)-1);
+        $newpassword .= $onlyCaracters[$indiceLettere];
 
     }
+    return $newpassword;
+
 }
 
 ?>
